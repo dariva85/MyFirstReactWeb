@@ -1,13 +1,70 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+ul {
+  list-style-type: none;
+  padding: 0em;
+}
+
+.PersonAvatarImg {
+  height: 5em;
+  border-radius: 0.5em;
+  margin: 0.5em;
+}
+
+.ListPerson {
+  margin: 1em 1em 1em 1em;
+  border: 0.2em solid gainsboro;
+  background-color: ghostwhite;
+  border-radius: 20px;
+}
+
+.Person {
+  padding: 1em 1em 1em 1em;
+  border-radius: 20px;
+}
+
+.Person h1 {
+  font-size: 20px;
+  margin: 0em;
+}
+
+#Title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#CautionImg {
+  height: 3em;
+  cursor: pointer;
+}
+
+.PersonAvatar {
+  margin: 2em 2em 0em 0em;
+}
+
+#ShowMore {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#btnShowMore {
+  border-radius: 20px;
+  border: 0.1;
+  border-color: gainsboro;
+  margin: 0.5em;
 }
