@@ -7,6 +7,7 @@ function PersonAvatar(props) {
         {props.children.map((item) => {
           return (
             <img
+              key={item.original}
               className="PersonAvatarImg"
               onError={(event) => (event.target.style.display = "none")}
               src={item.original}

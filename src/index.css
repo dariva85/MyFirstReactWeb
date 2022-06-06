@@ -20,6 +20,16 @@ ul {
   height: 5em;
   border-radius: 0.5em;
   margin: 0.5em;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.PersonAvatarImg:hover {
+  height: 10em;
+  border-radius: 1em;
+  margin: 0.5em;
+  transform: scale(1.5);
+  transition: all 0.5s ease-in-out;
+  transform-origin: bottom left;
 }
 
 .ListPerson {
@@ -32,9 +42,22 @@ ul {
 .Person {
   padding: 1em 1em 1em 1em;
   border-radius: 20px;
+  font-style: normal;
 }
 
 .Person h1 {
+  font-size: 20px;
+  margin: 0em;
+}
+
+.DetailedPerson {
+  margin: 1em 1em 1em 1em;
+  border: 0.2em solid gainsboro;
+  background-color: ghostwhite;
+  border-radius: 20px;
+}
+
+.DetailedPerson h1 {
   font-size: 20px;
   margin: 0em;
 }
@@ -52,7 +75,7 @@ ul {
 }
 
 .PersonAvatar {
-  margin: 2em 2em 0em 0em;
+  margin: 0.5em 0.5em 0em 0em;
 }
 
 #ShowMore {
@@ -67,4 +90,11 @@ ul {
   border: 0.1;
   border-color: gainsboro;
   margin: 0.5em;
+}
+
+.Spinner {
+  margin-top: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

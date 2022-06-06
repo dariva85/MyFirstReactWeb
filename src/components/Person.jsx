@@ -1,8 +1,10 @@
 import { React, useState } from "react";
 import PersonAvatar from "./PersonAvatar";
 import caution from "../assets/caution.png";
+import { NavLink, useNavigate } from "react-router-dom";
 function Person(props) {
   const [CautionHidden, SetCautionHidden] = useState(true);
+  const navigate = useNavigate();
 
   const CautionData = (isHidden) => {
     if (!isHidden) {
@@ -20,7 +22,11 @@ function Person(props) {
       return;
     } else {
       return (
-        <div id="CautionDiv" onClick={() => SetCautionHidden((prev) => !prev)}>
+        <div
+          id="CautionDiv"
+          onMouseEnter={() => SetCautionHidden(false)}
+          onMouseLeave={() => SetCautionHidden(true)}
+        >
           <img id="CautionImg" src={caution} />
         </div>
       );
@@ -41,7 +47,13 @@ function Person(props) {
   };
 
   return (
-    <div className="Person">
+    //<NavLink to={`/Person/${props.children.title}`}>
+    <div
+      className="Person"
+      onClick={() => {
+        navigate(`/Person/${props.children.title}`);
+      }}
+    >
       <div id="Title">
         <h1>{props.children.title}</h1>
         {ThereIsCautionData(props.children.caution)}
@@ -50,6 +62,7 @@ function Person(props) {
       <PersonAvatar>{props.children.images}</PersonAvatar>
       {CautionData(CautionHidden)}
     </div>
+    // </NavLink>
   );
 }
 
