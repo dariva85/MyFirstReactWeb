@@ -24,8 +24,12 @@ function Person(props) {
       return (
         <div
           id="CautionDiv"
-          onMouseEnter={() => SetCautionHidden(false)}
-          onMouseLeave={() => SetCautionHidden(true)}
+          //onMouseEnter={() => SetCautionHidden(false)}
+          //onMouseLeave={() => SetCautionHidden(true)}
+          onClick={(event) => {
+            event.stopPropagation();
+            SetCautionHidden()
+          }}
         >
           <img id="CautionImg" src={caution} />
         </div>

@@ -2,37 +2,36 @@ import { useState, useEffect, React } from "react";
 import axios from "axios";
 import Person from "./Person.jsx";
 import { NavLink } from "react-router-dom";
+import { getPersonsOnListByPage } from "./Api.js";
 
 function PersonList() {
   const [data, setData] = useState({ items: [] });
   const [page, setPage] = useState(1);
 
-  useEffect(() => {
-    const getData = async () => {
-      const results = await axios("https://api.fbi.gov/wanted/v1/list", {
-        params: { page: page },
-      });
-      const result = { items: data.items.concat(results.data.items) };
-      setData(result);
-      return () => {
-        setData([]);
-      };
+  const loadPersonsOnList = async () => {
+    const personsPerPage = await getPersonsOnListByPage(page);
+    const totalPersonOnList = {
+      items: data.items.concat(personsPerPage.data.items),
     };
 
-    getData();
+    setData(totalPersonOnList);
+  };
 
-    return () => {};
+  const GetListItems = () => {
+    return data.items.map((item) => (
+      <li className="ListPerson" key={item.title}>
+        <Person>{item}</Person>
+      </li>
+    ));
+  };
+
+  useEffect(() => {
+    loadPersonsOnList();
   }, [page]);
 
   return (
     <div>
-      <ul>
-        {data.items.map((item) => (
-          <li className="ListPerson" key={item.title}>
-            <Person>{item}</Person>
-          </li>
-        ))}
-      </ul>
+      <ul>{GetListItems()}</ul>
       <div id="ShowMore">
         <button
           id="btnShowMore"

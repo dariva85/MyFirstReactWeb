@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "./LoadingSpinner";
 import PersonAvatar from "./PersonAvatar";
+import { getPerson } from "./Api";
 
 function DetailedPerson() {
   const { personId } = useParams();
@@ -10,12 +11,9 @@ function DetailedPerson() {
 
   useEffect(() => {
     const getData = async () => {
-      console.log(`Looking for ${personId}`);
-      const results = await axios("https://api.fbi.gov/wanted/v1/list", {
-        params: { title: personId },
-      });
-      console.log(results);
-      setData(results.data.items[0]);
+      const result = await getPerson(personId);
+
+      setData(result);
 
       return () => {
         setData([]);
@@ -74,10 +72,16 @@ function DetailedPerson() {
         {AddDetail(data, "publication", "Publication")}
         {AddDetail(data, "warning_message", "Warning Message")}
         {AddDetail(data, "url", "URL")}
-        {AddDetail(data, "weight_min", "Weight min")}
-        {AddDetail(data, "weight_max", "Weight max")}
-        {AddDetail(data, "height_min", "Height min")}
-        {AddDetail(data, "height_max", "Height max")}
+        <div className="Columns">
+          <div className="Column">
+            {AddDetail(data, "weight_min", "Weight min")}
+            {AddDetail(data, "weight_max", "Weight max")}
+          </div>
+          <div className="Column">
+            {AddDetail(data, "height_min", "Height min")}
+            {AddDetail(data, "height_max", "Height max")}
+          </div>
+        </div>
       </div>
     </div>
   );
