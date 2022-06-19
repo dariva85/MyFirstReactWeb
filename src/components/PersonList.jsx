@@ -2,37 +2,39 @@ import { useState, useEffect, React } from "react";
 import axios from "axios";
 import Person from "./Person.jsx";
 import { NavLink } from "react-router-dom";
-import { getPersonsOnListByPage } from "./Api.js";
+import { getPersonsOnListByFilter, getPersonsOnListByPage } from "./Api.js";
 
 function PersonList() {
-  const [data, setData] = useState({ items: [] });
+  const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
+  const [filter, setFilter] = useState("");
 
   const loadPersonsOnList = async () => {
-    const personsPerPage = await getPersonsOnListByPage(page);
-    const totalPersonOnList = {
-      items: data.items.concat(personsPerPage.data.items),
-    };
+    let persons = [];
 
-    setData(totalPersonOnList);
+    if (filter !== "") {
+      persons = await await getPersonsOnListByFilter(filter);
+      setPage(1);
+    } else {
+      persons = await await getPersonsOnListByPage(page);
+      if (page > 1) persons = data.concat(persons);
+    }
+    console.log(filter);
+    console.log(persons);
+    setData(persons);
   };
 
   const GetListItems = () => {
-    return data.items.map((item) => (
-      <li className="ListPerson" key={item.title}>
+    return data.map((item) => (
+      <div className="ListPerson" key={item.title}>
         <Person>{item}</Person>
-      </li>
+      </div>
     ));
   };
 
-  useEffect(() => {
-    loadPersonsOnList();
-  }, [page]);
-
-  return (
-    <div>
-      <ul>{GetListItems()}</ul>
-      <div id="ShowMore">
+  const AddShowMoreButton = () => {
+    if (filter === "")
+      return (
         <button
           id="btnShowMore"
           onClick={() => {
@@ -41,7 +43,30 @@ function PersonList() {
         >
           Show more
         </button>
+      );
+  };
+
+  useEffect(() => {
+    loadPersonsOnList();
+  }, [page, filter]);
+
+  return (
+    <div>
+      <div id="InputFilterPos">
+        <div id="InputFilter">
+          <input
+            id="InputCtrl"
+            type="text"
+            name="name"
+            placeholder="Search"
+            onChange={(event) => {
+              setFilter(event.target.value);
+            }}
+          />
+        </div>
       </div>
+      <div id="PersonList">{GetListItems()}</div>
+      <div id="ShowMore">{AddShowMoreButton()}</div>
     </div>
   );
 }

@@ -1,0 +1,67 @@
+.Person {
+  padding: 1em 1em 1em 1em;
+  border-radius: 20px;
+  font-style: normal;
+}
+
+#Title h3 {
+  font-size: 20px;
+  margin: 0em;
+}
+
+.DetailedPerson {
+  margin: 1em 1em 1em 1em;
+  border: 0.2em solid gainsboro;
+  background-color: ghostwhite;
+  border-radius: 20px;
+}
+
+.DetailedPerson h1 {
+  font-size: 20px;
+}
+
+#Title {
+  margin: 0em 1em 0em 0em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#CautionImg {
+  height: 2.5em;
+  cursor: pointer;
+}
+
+.PersonAvatar {
+  margin: 0.5em 0.5em 0em 0em;
+}
+
+.PersonAvatarImg {
+  height: 5em;
+  border-radius: 0.5em;
+  margin: 0.5em;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.PersonAvatarImg:hover {
+  height: 10em;
+  border-radius: 1em;
+  margin: 0.5em;
+  transform: scale(1);
+  transition: all 0.5s ease-in-out;
+}
+
+#Back {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+#BackImage {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0em 0.5em 0em 0em;
+}

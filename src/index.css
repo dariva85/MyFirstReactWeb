@@ -16,79 +16,12 @@ ul {
   padding: 0em;
 }
 
-.PersonAvatarImg {
-  height: 5em;
-  border-radius: 0.5em;
-  margin: 0.5em;
-  overflow: hidden;
-  transition: all 0.5s ease-in-out;
-}
-.PersonAvatarImg:hover {
-  height: 10em;
-  border-radius: 1em;
-  margin: 0.5em;
-  transform: scale(1.3);
-  transition: all 0.5s ease-in-out;
-  transform-origin: bottom left;
-}
-
 .ListPerson {
-  margin: 1em 1em 1em 1em;
+  margin: 1em 1em 0em 1em;
   border: 0.2em solid gainsboro;
   background-color: ghostwhite;
   border-radius: 20px;
-}
-
-.Person {
-  padding: 1em 1em 1em 1em;
-  border-radius: 20px;
-  font-style: normal;
-}
-
-.Person h1 {
-  font-size: 20px;
-  margin: 0em;
-}
-
-.DetailedPerson {
-  margin: 1em 1em 1em 1em;
-  border: 0.2em solid gainsboro;
-  background-color: ghostwhite;
-  border-radius: 20px;
-}
-
-.DetailedPerson h1 {
-  font-size: 20px;
-  margin: 0em;
-}
-
-#Title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#CautionImg {
-  height: 3em;
-  cursor: pointer;
-}
-
-.PersonAvatar {
-  margin: 0.5em 0.5em 0em 0em;
-}
-
-.Columns {
-  display: flex;
-  flex-direction: row;
-}
-
-.Column {
-  width: 50%;
-}
-
-.Person div {
-  margin: 0.5em 0em 0.5em 0em;
+  width: 50em;
 }
 
 #ShowMore {
@@ -110,4 +43,43 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#PersonList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#InputFilterPos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#InputFilter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1em 1em 1em 1em;
+  margin: 1em 1em 1em 1em;
+  border-radius: 40px;
+  font-style: normal;
+  background-color: gainsboro;
+  margin: 1em 1em 0em 1em;
+  width: 30em;
+}
+
+#InputCtrl {
+  font-size: 1.8em;
+  border-style: hidden;
+  border-color: white;
+  width: 100%;
+  border-radius: 20px;
+  margin: 0em 1em 0em 1em;
+  outline: none;
+  text-align: center;
 }

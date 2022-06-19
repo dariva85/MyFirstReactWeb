@@ -1,0 +1,11 @@
+.Columns {
+  display: flex;
+  flex-direction: row;
+}
+
+.Column {
+  margin: 1em 1em 1em 0em;
+  display: flex;
+  flex-direction: column;
+  justify-items: start;
+}
